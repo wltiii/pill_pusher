@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'features/schedule/domain/entities/pill_box.dart';
-import 'features/schedule/domain/entities/pill_sets.dart';
+import 'features/schedule/domain/entities/pill_box_set.dart';
 
 
 void main() {

@@ -2,11 +2,11 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'pill_box.dart';
 
-class PillSets extends Equatable {
+class PillBoxSet extends Equatable {
   final String dependent;
   final List<PillBox> sets;
 
-  PillSets({
+  PillBoxSet({
     @required this.dependent,
     @required this.sets
   });

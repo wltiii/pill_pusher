@@ -1,7 +1,6 @@
 import 'package:pill_pusher/features/schedule/domain/entities/pill.dart';
 import 'package:pill_pusher/features/schedule/domain/entities/pill_box.dart';
 import 'package:test/test.dart';
-import 'package:pill_pusher/domain/test-data.dart';
 
 void main() {
   test('instantiates a PillSet from default named argument constructor', () {
