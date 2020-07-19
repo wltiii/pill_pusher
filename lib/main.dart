@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pill_pusher/domain/pill-set.dart';
-import 'package:pill_pusher/domain/pill-sets.dart';
-import 'package:pill_pusher/domain/test-data.dart';
+
+import 'features/schedule/domain/entities/pill_box.dart';
+import 'features/schedule/domain/entities/pill_sets.dart';
 
 
 void main() {
@@ -54,7 +54,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // TODO this is a stub - get from data store
+  // TODO replace this with a call (?)
   PillSets _pillSets = PillSets.fromJson(testPillSets);
 
   @override
@@ -77,28 +77,28 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildSetItem(PillSet set, String dependent) {
+  Widget _buildSetItem(PillBox pillbox, String dependent) {
 //    return _buildSetHeader(set);
     return ExpansionTile(
-      title: _buildSetTitle(set),
-      subtitle: _buildSetSubtitle(set),
+      title: _buildSetTitle(pillbox),
+      subtitle: _buildSetSubtitle(pillbox),
       children: [
         _buildDependent(dependent),
-        _buildPillList(set.pills),
+        _buildPillList(pillbox.pills),
       ]
     );
   }
 
-  Widget _buildSetTitle(PillSet set) {
+  Widget _buildSetTitle(PillBox pillbox) {
     return Text(
-        set.name,
+        pillbox.name,
         style: new TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)
     );
   }
 
-  Widget _buildSetSubtitle(PillSet set) {
+  Widget _buildSetSubtitle(PillBox pillbox) {
     return Text(
-        set.frequency,
+        pillbox.frequency,
         style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)
     );
   }

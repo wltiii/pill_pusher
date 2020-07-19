@@ -1,12 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'pill.dart';
 
-class PillSet extends Equatable {
+class PillBox extends Equatable {
   final String name;
   final String frequency;
-  final List pills;
+  final List<Pill> pills;
 
-  PillSet({
+  PillBox({
     @required this.name,
     @required this.frequency,
     @required this.pills
