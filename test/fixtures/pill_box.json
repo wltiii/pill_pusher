@@ -1,0 +1,16 @@
+{
+  "name": "Morning",
+  "frequency": "Daily",
+  "pills": [
+    {"name": "C"},
+    {"name": "D"},
+    {"name": "Fish (Krill) Oil"},
+    {"name": "Glipizide"},
+    {"name": "Probiotic"},
+    {"name": "Zinc"},
+    {
+      "name": "Extra Virgin Olive Oil",
+      "dose": "Two tablespoons"
+    }
+  ]
+}
