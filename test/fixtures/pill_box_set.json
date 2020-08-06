@@ -1,7 +1,7 @@
 {
   "caretaker": "Bill",
   "dependent": "Coda",
-  "sets": [
+  "pillBoxes": [
     {
       "name": "Morning",
       "frequency": "Daily",

@@ -28,7 +28,7 @@ void main() {
         frequency: 'Daily',
         pills: [pill]
     );
-    PillBoxSet pillBoxSet = PillBoxSet(dependent: 'Coda', sets: [pillbox]);
+    PillBoxSet pillBoxSet = PillBoxSet(dependent: 'Coda', pillBoxes: [pillbox]);
     when(mockPillBoxSetRepository.getPillBoxSet(any))
         .thenAnswer((_) async =>  Right(pillBoxSet));
 

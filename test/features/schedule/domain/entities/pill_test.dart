@@ -1,11 +1,29 @@
+import 'package:equatable/equatable.dart';
 import 'package:pill_pusher/features/schedule/domain/entities/pill.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test("instantiates a PillSet from default named argument constructor", () {
-    final pill = Pill(name: "Simvastatin");
+  final pill = Pill(name: "Zinc");
 
-    expect(pill.name, equals('Simvastatin'));
-    expect(pill.toString(), equals("Pill(Simvastatin)"));
+  group("construction", () {
+    test('should be a subclass of Equatable entity', () async {
+      expect(pill, isA<Equatable>());
+    });
+
+    test("instantiates a Pill from named argument constructor", () {
+      expect(pill.name, equals('Zinc'));
+    });
+  });
+
+  group("implements Equatable properly", () {
+    test('props contains list of all properties that determine equality when constructed', ()
+    {
+      expect(pill.props, equals([pill.name]));
+    });
+
+    test('stringify is turned on when constructed', ()
+    {
+      expect(pill.stringify, isTrue);
+    });
   });
 }

@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ListView(
-          children: _pillSets.sets.map((set) => _buildSetItem( set, _pillSets.dependent)).toList(),
+          children: _pillSets.pillBoxes.map((set) => _buildSetItem( set, _pillSets.dependent)).toList(),
        ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

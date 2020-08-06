@@ -3,16 +3,18 @@ import 'package:meta/meta.dart';
 import 'pill_box.dart';
 
 class PillBoxSet extends Equatable {
+  final String caretaker;
   final String dependent;
-  final List<PillBox> sets;
+  final List<PillBox> pillBoxes;
 
   PillBoxSet({
+    @required this.caretaker,
     @required this.dependent,
-    @required this.sets
+    @required this.pillBoxes
   });
 
   @override
-  List<Object> get props => [dependent, sets];
+  List<Object> get props => [caretaker, dependent, pillBoxes];
 
   @override
   bool get stringify => true;
