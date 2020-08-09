@@ -35,7 +35,7 @@ void main() {
 
   });
 
-  group("implements Equatable properly", () {
+  group("Equatable", () {
     test('props contains list of all properties that determine equality when constructed', ()
     {
       expect(pillBoxSet.props, equals([pillBoxSet.caretaker, pillBoxSet.dependent, pillBoxSet.pillBoxes]));

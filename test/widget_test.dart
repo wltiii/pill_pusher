@@ -1,3 +1,4 @@
+@Skip('default widget test needs to be re-coded')
 // This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester

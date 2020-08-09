@@ -55,7 +55,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // TODO replace this with a call (?)
-  PillSets _pillSets = PillSets.fromJson(testPillSets);
+  PillBoxSet _pillSets = PillBoxSet.fromJson(testPillSets);
 
   @override
   Widget build(BuildContext context) {

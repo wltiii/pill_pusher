@@ -11,12 +11,12 @@ import 'package:pill_pusher/features/schedule/domain/usecases/get_pill_box_set.d
 class MockPillBoxSetRepository extends Mock implements PillBoxSetRepository {}
 
 void main() {
-  GetPillBoxSet usecase;
+  GetPillBoxSet useCase;
   MockPillBoxSetRepository mockPillBoxSetRepository;
 
   setUp(() {
     mockPillBoxSetRepository = MockPillBoxSetRepository();
-    usecase = GetPillBoxSet(mockPillBoxSetRepository);
+    useCase = GetPillBoxSet(mockPillBoxSetRepository);
   });
 
   test('gets pill box set from the repository', () async {
@@ -33,7 +33,7 @@ void main() {
         .thenAnswer((_) async =>  Right(pillBoxSet));
 
     // when
-    final result = await usecase(Params(dependent: givenDependent));
+    final result = await useCase(Params(dependent: givenDependent));
 
     // then
     expect(result, Right(pillBoxSet));

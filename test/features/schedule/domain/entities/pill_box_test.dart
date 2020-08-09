@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:pill_pusher/features/schedule/domain/entities/pill.dart';
 import 'package:pill_pusher/features/schedule/domain/entities/pill_box.dart';
 import 'package:test/test.dart';
@@ -15,18 +16,29 @@ void main() {
       ]
   );
 
-  test('instantiates a PillBox from default named argument constructor', () {
+  group("construction", () {
+    test('should be a subclass of Equatable entity', () async {
+      expect(pillbox, isA<Equatable>());
+    });
 
-    expect(pillbox.name, equals('Morning'));
-    expect(pillbox.frequency, equals('Daily'));
-    expect(pillbox.toString(), equals("PillBox(Morning, Daily, [Pill(C), Pill(D), Pill(Fish (Krill) Oil), Pill(Glipizide), Pill(Probiotic), Pill(Zinc)])"));
-    expect(pillbox.pills, equals([
-      Pill(name:"C"),
-      Pill(name:"D"),
-      Pill(name:"Fish (Krill) Oil"),
-      Pill(name:"Glipizide"),
-      Pill(name:"Probiotic"),
-      Pill(name:"Zinc"),
-    ]));
+    test('instantiates a PillBox from named argument constructor', ()
+    {
+      expect(pillbox.name, equals('Morning'));
+      expect(pillbox.frequency, equals('Daily'));
+      expect(pillbox.pills.length, equals(2));
+    });
+
+  });
+
+  group("Equatable", () {
+    test('props contains list of all properties that determine equality when constructed', ()
+    {
+      expect(pillbox.props, equals([pillbox.name, pillbox.frequency, pillbox.pills]));
+    });
+
+    test('stringify is turned on when constructed', ()
+    {
+      expect(pillbox.stringify, isTrue);
+    });
   });
 }

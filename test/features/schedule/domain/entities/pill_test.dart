@@ -15,7 +15,7 @@ void main() {
     });
   });
 
-  group("implements Equatable properly", () {
+  group("Equatable", () {
     test('props contains list of all properties that determine equality when constructed', ()
     {
       expect(pill.props, equals([pill.name]));

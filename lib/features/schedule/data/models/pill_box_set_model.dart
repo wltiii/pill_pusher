@@ -24,7 +24,7 @@ class PillBoxSetModel extends PillBoxSet {
       pillBoxes: json['pillBoxes']
           .map((pillBox) => PillBoxModel.fromJson(pillBox))
             .toList()
-            .cast<PillModel>(),
+            .cast<PillBoxModel>(),
     );
   }
 
