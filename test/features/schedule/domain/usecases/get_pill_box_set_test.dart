@@ -14,6 +14,18 @@ void main() {
   GetPillBoxSet useCase;
   MockPillBoxSetRepository mockPillBoxSetRepository;
 
+  final pillBoxSet = PillBoxSet(
+      caretaker: "Bill",
+      dependent: 'Zorba',
+      pillBoxes: [PillBox(
+          name: 'Morning',
+          frequency: 'Daily',
+          pills: [
+            Pill(name: "Extra Virgin Olive Oil"),
+          ]
+      )]
+  );
+
   setUp(() {
     mockPillBoxSetRepository = MockPillBoxSetRepository();
     useCase = GetPillBoxSet(mockPillBoxSetRepository);
@@ -22,19 +34,10 @@ void main() {
   test('gets pill box set from the repository', () async {
     // given
     String givenDependent = 'Zorba';
-    Pill pill = Pill(name: "Probiotic");
-    PillBox pillbox = PillBox(
-        name: 'Morning',
-        frequency: 'Daily',
-        pills: [pill]
-    );
-    PillBoxSet pillBoxSet = PillBoxSet(dependent: 'Coda', pillBoxes: [pillbox]);
     when(mockPillBoxSetRepository.getPillBoxSet(any))
         .thenAnswer((_) async =>  Right(pillBoxSet));
-
     // when
     final result = await useCase(Params(dependent: givenDependent));
-
     // then
     expect(result, Right(pillBoxSet));
     verify(mockPillBoxSetRepository.getPillBoxSet(givenDependent));
