@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'features/schedule/domain/entities/pill_box.dart';
 import 'features/schedule/domain/entities/pill_box_set.dart';
+import 'features/schedule/domain/repositories/pill_box_set_repository.dart';
 
 
 void main() {
@@ -54,8 +55,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // TODO replace this with a call (?)
-  PillBoxSet _pillSets = PillBoxSet.fromJson(testPillSets);
+  // TODO this is temporary. Only meant as a marker during refactor.
+  PillBoxSet _pillSets = await PillBoxSetRepository.getByDependent('Coda');
 
   @override
   Widget build(BuildContext context) {

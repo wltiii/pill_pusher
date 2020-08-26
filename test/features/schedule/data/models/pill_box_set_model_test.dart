@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pill_pusher/features/schedule/data/models/pill_box_model.dart';
@@ -6,7 +7,7 @@ import 'package:pill_pusher/features/schedule/data/models/pill_box_set_model.dar
 import 'package:pill_pusher/features/schedule/data/models/pill_model.dart';
 import 'package:pill_pusher/features/schedule/domain/entities/pill_box_set.dart';
 
-import '../../../../fixtures/fixture_reader.dart';
+import '../../../../fixtures/fixture_reader.dart' show fixture;
 
 void main() {
   final vitaminC = PillModel(name: "C");
