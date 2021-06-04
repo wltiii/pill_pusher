@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:pill_pusher/domain/pill-set.dart';
-import 'package:pill_pusher/domain/pill-sets.dart';
-import 'package:pill_pusher/domain/test-data.dart';
+import 'package:pill_pusher/domain/entities/pill-set.dart';
+import 'package:pill_pusher/domain/entities/pill-sets.dart';
+import 'package:pill_pusher/domain/entities/pill.dart';
+import 'package:pill_pusher/domain/entities/test-data.dart';
 
 
 void main() {
@@ -55,7 +58,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // TODO this is a stub - get from data store
-  PillSets _pillSets = PillSets.fromJson(testPillSets);
+  PillSets _pillSets = PillSets.fromJson(jsonDecode(multiplePillSetsJsonString));
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
-            "Dependent: ${dependent}",
+            "Dependent: $dependent",
             style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)
         ),
       ]
@@ -117,13 +120,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildPillList(List pills) {
     return ExpansionTile(
+      title: Text("I don't have a title!"),
         children: pills.map((pill) => _buildPillItem(pill)).toList(),
     );
   }
 
-  Widget _buildPillItem(String pill) {
+  Widget _buildPillItem(Pill pill) {
     return Text(
-        pill,
+        pill.name,
         style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)
     );
   }
