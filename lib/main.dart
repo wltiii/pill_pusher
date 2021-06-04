@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-import 'features/schedule/domain/entities/pill_box.dart';
-import 'features/schedule/domain/entities/pill_box_set.dart';
-import 'features/schedule/domain/repositories/pill_box_set_repository.dart';
+import 'package:flutter/material.dart';
+import 'package:pill_pusher/domain/entities/pill-set.dart';
+import 'package:pill_pusher/domain/entities/pill-sets.dart';
+import 'package:pill_pusher/domain/entities/pill.dart';
+import 'package:pill_pusher/domain/entities/test-data.dart';
 
 
 void main() {
@@ -55,8 +57,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // TODO this is temporary. Only meant as a marker during refactor.
-  PillBoxSet _pillSets = await PillBoxSetRepository.getByDependent('Coda');
+  // TODO this is a stub - get from data store
+  PillSets _pillSets = PillSets.fromJson(jsonDecode(multiplePillSetsJsonString));
 
   @override
   Widget build(BuildContext context) {
@@ -73,33 +75,33 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ListView(
-          children: _pillSets.pillBoxes.map((set) => _buildSetItem( set, _pillSets.dependent)).toList(),
+          children: _pillSets.sets.map((set) => _buildSetItem( set, _pillSets.dependent)).toList(),
        ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
-  Widget _buildSetItem(PillBox pillbox, String dependent) {
+  Widget _buildSetItem(PillSet set, String dependent) {
 //    return _buildSetHeader(set);
     return ExpansionTile(
-      title: _buildSetTitle(pillbox),
-      subtitle: _buildSetSubtitle(pillbox),
+      title: _buildSetTitle(set),
+      subtitle: _buildSetSubtitle(set),
       children: [
         _buildDependent(dependent),
-        _buildPillList(pillbox.pills),
+        _buildPillList(set.pills),
       ]
     );
   }
 
-  Widget _buildSetTitle(PillBox pillbox) {
+  Widget _buildSetTitle(PillSet set) {
     return Text(
-        pillbox.name,
+        set.name,
         style: new TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)
     );
   }
 
-  Widget _buildSetSubtitle(PillBox pillbox) {
+  Widget _buildSetSubtitle(PillSet set) {
     return Text(
-        pillbox.frequency,
+        set.frequency,
         style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)
     );
   }
@@ -109,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
-            "Dependent: ${dependent}",
+            "Dependent: $dependent",
             style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)
         ),
       ]
@@ -118,13 +120,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildPillList(List pills) {
     return ExpansionTile(
+      title: Text("I don't have a title!"),
         children: pills.map((pill) => _buildPillItem(pill)).toList(),
     );
   }
 
-  Widget _buildPillItem(String pill) {
+  Widget _buildPillItem(Pill pill) {
     return Text(
-        pill,
+        pill.name,
         style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)
     );
   }
