@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+
 import 'pill.dart';
 
 class PillBox extends Equatable {
@@ -7,11 +7,7 @@ class PillBox extends Equatable {
   final String frequency;
   final List<Pill> pills;
 
-  PillBox({
-    @required this.name,
-    @required this.frequency,
-    @required this.pills
-  });
+  PillBox({required this.name, required this.frequency, required this.pills});
 
   @override
   List<Object> get props => [name, frequency, pills];

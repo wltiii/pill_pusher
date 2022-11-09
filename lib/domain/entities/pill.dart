@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
 class Pill extends Equatable {
@@ -7,8 +6,8 @@ class Pill extends Equatable {
 
   //TODO this probably should be a named constructor to enable making fields private
   Pill({
-    @required this.name,
-    this.dose : '',
+    required this.name,
+    this.dose: '',
   });
 
   @override
@@ -27,5 +26,4 @@ class Pill extends Equatable {
       "name": name,
     };
   }
-
 }

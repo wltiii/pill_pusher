@@ -1,4 +1,3 @@
-import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pill_pusher/core/network/network_info.dart';
 
@@ -9,21 +8,18 @@ class MockNetworkInfo implements NetworkInfo {
 }
 
 void main() {
-  NetworkInfo networkInfo;
-
-  setUp(() {
-    networkInfo = MockNetworkInfo();
-  });
-
   group('isConnected', () {
-    test('should forward the call to DataConnectionChecker.hasConnection', () async {
+    test(
+      'should forward the call to DataConnectionChecker.hasConnection',
+      () async {
         // given
+        final mockNetworkInfo = MockNetworkInfo();
         final givenConnectionFuture = Future.value(true);
 
 //        when(mockDataConnectionChecker.hasConnection)
 //            .thenAnswer((_) => tHasConnectionFuture);
         // when
-        final result = networkInfo.isConnected;
+        final result = mockNetworkInfo.isConnected;
         // then
 //        verify(mockDataConnectionChecker.hasConnection);
         expect(result, givenConnectionFuture);

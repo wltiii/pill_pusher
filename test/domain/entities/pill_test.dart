@@ -1,6 +1,7 @@
 import 'dart:convert';
+
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pill_pusher/domain/entities/pill.dart';
-import 'package:test/test.dart';
 
 void main() {
   test("instantiates from parameterized constructor having required args only", () {
@@ -30,8 +31,7 @@ void main() {
   });
 
   test('instantiates from json constructor having all args', () {
-    final Map<String, dynamic> jsonMap = json
-        .decode('''{"name": "D", "dose": "400 IU"}''');
+    final Map<String, dynamic> jsonMap = json.decode('''{"name": "D", "dose": "400 IU"}''');
     final pill = Pill.fromJson(jsonMap);
 
     expect(pill.name, equals('D'));

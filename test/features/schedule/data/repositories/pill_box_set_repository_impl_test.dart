@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 import 'package:pill_pusher/features/schedule/data/models/pill_box_model.dart';
 import 'package:pill_pusher/features/schedule/data/models/pill_box_set_model.dart';
 import 'package:pill_pusher/features/schedule/data/models/pill_model.dart';
@@ -11,22 +10,19 @@ void main() {
   PillBoxSetRepositoryImpl repository;
 
   setUp(() {
-    repository = PillBoxSetRepositoryImpl();
+    // repository = PillBoxSetRepositoryImpl();
   });
 
   group('getPillBoxSet', () {
-
     test('returns PillBoxSet when found', () async {
       // given
+      repository = PillBoxSetRepositoryImpl();
+
       final pillBoxSetModel = PillBoxSetModel(
         caretaker: "Bill",
         dependent: "Coda",
         pillBoxes: [
-          PillBoxModel(
-            name: 'Morning',
-            frequency: "Daily",
-            pills: [PillModel(name: "C")]
-          ),
+          PillBoxModel(name: 'Morning', frequency: "Daily", pills: [PillModel(name: "C")]),
         ],
       );
 
@@ -37,5 +33,4 @@ void main() {
       expect(result, equals(Right(pillBoxSet)));
     });
   });
-
 }

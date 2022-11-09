@@ -6,7 +6,6 @@ import 'package:pill_pusher/domain/entities/pill-sets.dart';
 import 'package:pill_pusher/domain/entities/pill.dart';
 import 'package:pill_pusher/domain/entities/test-data.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -39,7 +38,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({
+    required this.title,
+    Key? key = const Key('Home'),
+  }) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -75,63 +77,42 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ListView(
-          children: _pillSets.sets.map((set) => _buildSetItem( set, _pillSets.dependent)).toList(),
-       ), // This trailing comma makes auto-formatting nicer for build methods.
+        children: _pillSets.sets.map((set) => _buildSetItem(set, _pillSets.dependent)).toList(),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
   Widget _buildSetItem(PillSet set, String dependent) {
 //    return _buildSetHeader(set);
-    return ExpansionTile(
-      title: _buildSetTitle(set),
-      subtitle: _buildSetSubtitle(set),
-      children: [
-        _buildDependent(dependent),
-        _buildPillList(set.pills),
-      ]
-    );
+    return ExpansionTile(title: _buildSetTitle(set), subtitle: _buildSetSubtitle(set), children: [
+      _buildDependent(dependent),
+      _buildPillList(set.pills),
+    ]);
   }
 
   Widget _buildSetTitle(PillSet set) {
-    return Text(
-        set.name,
-        style: new TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)
-    );
+    return Text(set.name, style: new TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold));
   }
 
   Widget _buildSetSubtitle(PillSet set) {
-    return Text(
-        set.frequency,
-        style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)
-    );
+    return Text(set.frequency, style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold));
   }
 
   Widget _buildDependent(String dependent) {
-    return Row (
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Text(
-            "Dependent: $dependent",
-            style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)
-        ),
-      ]
-    );
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      Text("Dependent: $dependent",
+          style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)),
+    ]);
   }
 
   Widget _buildPillList(List pills) {
     return ExpansionTile(
       title: Text("I don't have a title!"),
-        children: pills.map((pill) => _buildPillItem(pill)).toList(),
+      children: pills.map((pill) => _buildPillItem(pill)).toList(),
     );
   }
 
   Widget _buildPillItem(Pill pill) {
-    return Text(
-        pill.name,
-        style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)
-    );
+    return Text(pill.name, style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal));
   }
-
-
-
 }
