@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:pill_pusher/features/schedule/data/datasources/pill_box_set_remote_data_source.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
@@ -24,6 +24,6 @@ void main() {
       final result = await dataSource.getByDependent(aDependent);
       // then
       expect(result, equals(expectedPillBoxSet));
-    });
+    }, skip: 'not yet implemented');
   });
 }

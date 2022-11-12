@@ -24,6 +24,7 @@ void main() {
 //        verify(mockDataConnectionChecker.hasConnection);
         expect(result, givenConnectionFuture);
       },
+      skip: 'not yet implemented',
     );
   });
 }
