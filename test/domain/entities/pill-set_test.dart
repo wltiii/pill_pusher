@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pill_pusher/domain/entities/pill-set.dart';
+import 'package:pill_pusher/domain/entities/pillbox.dart';
 import 'package:pill_pusher/domain/entities/pill.dart';
 import 'package:pill_pusher/domain/entities/test-data.dart';
 
 void main() {
   test('instantiates from parameterized constructor having required args only', () {
-    final pillSet = PillSet(name: 'Morning');
+    final pillSet = PillSet.Pillbox(name: 'Morning');
 
     expect(pillSet.name, equals('Morning'));
     expect(pillSet.frequency, equals(''));
@@ -17,7 +17,7 @@ void main() {
 
   test('instantiates from parameterized constructor having all args', () {
     final pillSet =
-        PillSet(name: 'Morning', frequency: 'Daily', pills: [Pill(name: 'C'), Pill(name: 'D')]);
+        PillSet.Pillbox(name: 'Morning', frequency: 'Daily', pills: [Pill(name: 'C'), Pill(name: 'D')]);
 
     expect(pillSet.name, equals('Morning'));
     expect(pillSet.frequency, equals('Daily'));

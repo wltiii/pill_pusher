@@ -7,7 +7,7 @@ class PillSet extends Equatable {
   List<Pill> pills;
 
   //TODO this probably should be a named constructor to enable making fields private
-  PillSet({
+  PillSet.Pillbox({
     required this.name,
     this.frequency: '',
     this.pills: const [],
@@ -22,7 +22,7 @@ class PillSet extends Equatable {
   factory PillSet.fromJson(Map<String, dynamic> json) {
     var somePills = json['pills'].map((pill) => Pill.fromJson(pill)).toList().cast<Pill>();
 
-    var pillSet = PillSet(
+    var pillSet = PillSet.Pillbox(
       name: json['name'],
       frequency: json['frequency'] ?? '',
       pills: somePills,

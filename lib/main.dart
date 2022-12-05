@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:pill_pusher/domain/entities/pill-set.dart';
-import 'package:pill_pusher/domain/entities/pill-sets.dart';
+import 'package:pill_pusher/domain/entities/pillbox.dart';
+import 'package:pill_pusher/domain/entities/pillbox-container.dart';
 import 'package:pill_pusher/domain/entities/pill.dart';
 import 'package:pill_pusher/domain/entities/test-data.dart';
 
@@ -60,7 +60,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // TODO this is a stub - get from data store
-  PillSets _pillSets = PillSets.fromJson(jsonDecode(multiplePillSetsJsonString));
+  PillboxContainer _pillSets = PillboxContainer.fromJson(jsonDecode(multiplePillSetsJsonString));
 
   @override
   Widget build(BuildContext context) {
@@ -108,11 +108,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildPillList(List pills) {
     return ExpansionTile(
       title: Text("I don't have a title!"),
-      children: pills.map((pill) => _buildPillItem(pill)).toList(),
+        children: pills.map((pill) => _buildPillItem(pill)).toList(),
     );
   }
 
   Widget _buildPillItem(Pill pill) {
     return Text(pill.name, style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal));
   }
+
+
+
 }

@@ -1,18 +1,18 @@
-import 'package:pill_pusher/domain/entities/pill-set.dart';
+import 'package:pill_pusher/domain/entities/pillbox.dart';
 
 
-class PillSets {
+class PillboxContainer {
   String dependent;
   List<PillSet> sets = [];
 
   //TODO this probably should be a named constructor to enable making fields private
-  PillSets(
+  PillboxContainer(
       this.dependent,
       this.sets
       );
 
-  factory PillSets.fromJson(Map<String, dynamic> json) {
-    return PillSets(
+  factory PillboxContainer.fromJson(Map<String, dynamic> json) {
+    return PillboxContainer(
         json['dependent'] ?? '',
         json['sets'].map((set) => PillSet.fromJson(set))
             .toList()
