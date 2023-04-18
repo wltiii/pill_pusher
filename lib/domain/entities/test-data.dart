@@ -29,6 +29,19 @@ final multiplePillSetsJsonString = '''{
             "form": "chewable tablet"
           },
           {
+            "name": "Metformin Hcl Er 24Hr 500 Mg",
+            "dose": "500 Mg",
+            "brand": "Tagi Pharm",
+            "form": "tablet",
+            "quantity": 90,
+            "rx": "6405675",
+            "directions": "Take one tablet by mouth once day with dinner",
+            "pharmacy": {
+              "name": "Costco St. Louis Park, MN",
+              "phone": "763.582.9602"
+            }
+          },
+          {
             "name": "D3",
             "dose": "50 mcg (2000 IU)",
             "brand": "Kirkland Extra Strength D3",
@@ -39,19 +52,6 @@ final multiplePillSetsJsonString = '''{
             "dose": "500 mg",
             "brand": "Kirkland Krill Oil",
             "form": "tablet"
-          },
-          {
-            "name": "Glipizide Er 24hr",
-            "dose": "10 mg",
-            "brand": "Northstar",
-            "form": "tablet",
-            "quantity": 90,
-            "rx": "6405671",
-            "directions": "Take one tablet by mouth once daily",
-            "pharmacy": {
-              "name": "Costco St. Louis Park, MN",
-              "phone": "763.582.9602"
-            }
           },
           {
             "name": "Probiotic",
@@ -70,25 +70,6 @@ final multiplePillSetsJsonString = '''{
             "dose": "Two tablespoons",
             "brand": "Kirkland Organic 100% California Extra Virgin Olive Oil",
             "form": "liquid"
-          }
-        ]
-      },
-      {
-        "name": "Dinner",
-        "frequency": "Daily",
-        "pills": [
-          {
-            "name": "Metformin Hcl Er 24Hr 500 Mg",
-            "dose": "500 Mg",
-            "brand": "Tagi Pharm",
-            "form": "tablet",
-            "quantity": 90,
-            "rx": "6405675",
-            "directions": "Take one tablet by mouth once day with dinner",
-            "pharmacy": {
-              "name": "Costco St. Louis Park, MN",
-              "phone": "763.582.9602"
-            }
           }
         ]
       },
@@ -113,19 +94,6 @@ final multiplePillSetsJsonString = '''{
             "dose": "One capsule",
             "brand": "Trunature Cinsulin",
             "form": "capsule"
-          },
-          {
-            "name": "Lisinopril",
-            "dose": "2.5 Mg - 1/2 of 5mg",
-            "brand": "Solco Health",
-            "form": "tablet",
-            "quantity": 45,
-            "rx": "6405673",
-            "directions": "Take 1/2 tablet by mouth once daily",
-            "pharmacy": {
-              "name": "Costco St. Louis Park, MN",
-              "phone": "763.582.9602"
-            }
           },
           {
             "name": "Simvastatin",
@@ -167,7 +135,6 @@ final dependentSinglePillSetsJsonString = '''{
         }
       ]
     }''';
-
 
 final noDependentSinglePillSetsJsonString = '''{
       "sets" : [
