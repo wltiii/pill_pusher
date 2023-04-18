@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:pill_pusher/domain/entities/pillbox.dart';
-import 'package:pill_pusher/domain/entities/pillbox-container.dart';
 import 'package:pill_pusher/domain/entities/pill.dart';
+import 'package:pill_pusher/domain/entities/pillbox-container.dart';
+import 'package:pill_pusher/domain/entities/pillbox.dart';
 import 'package:pill_pusher/domain/entities/test-data.dart';
 
 void main() {
@@ -60,7 +60,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // TODO this is a stub - get from data store
-  PillboxContainer _pillSets = PillboxContainer.fromJson(jsonDecode(multiplePillSetsJsonString));
+  PillboxContainer _pillSets =
+      PillboxContainer.fromJson(jsonDecode(multiplePillSetsJsonString));
 
   @override
   Widget build(BuildContext context) {
@@ -77,45 +78,70 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ListView(
-        children: _pillSets.sets.map((set) => _buildSetItem(set, _pillSets.dependent)).toList(),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        children: _pillSets.sets
+            .map((set) => _buildSetItem(set, _pillSets.dependent))
+            .toList(),
+      ),
     );
   }
 
   Widget _buildSetItem(PillSet set, String dependent) {
-//    return _buildSetHeader(set);
-    return ExpansionTile(title: _buildSetTitle(set), subtitle: _buildSetSubtitle(set), children: [
-      _buildDependent(dependent),
-      _buildPillList(set.pills),
-    ]);
+    return ExpansionTile(
+        title: _buildSetTitle(set),
+        subtitle: _buildSetSubtitle(set),
+        children: [
+          _buildDependent(dependent),
+          _buildPillList(set.pills),
+        ]);
   }
 
   Widget _buildSetTitle(PillSet set) {
-    return Text(set.name, style: new TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold));
+    return Text(
+      set.name,
+      style: const TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
   }
 
   Widget _buildSetSubtitle(PillSet set) {
-    return Text(set.frequency, style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold));
+    return Text(
+      set.frequency,
+      style: const TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
   }
 
   Widget _buildDependent(String dependent) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Text("Dependent: $dependent",
-          style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal)),
+      Text(
+        "Dependent: $dependent",
+        style: const TextStyle(
+          fontSize: 18.0,
+          fontWeight: FontWeight.normal,
+        ),
+      ),
     ]);
   }
 
   Widget _buildPillList(List pills) {
     return ExpansionTile(
-      title: Text("I don't have a title!"),
-        children: pills.map((pill) => _buildPillItem(pill)).toList(),
+      title: const Center(child: Text("Medications and Supplements")),
+      initiallyExpanded: true,
+      children: pills.map((pill) => _buildPillItem(pill)).toList(),
     );
   }
 
   Widget _buildPillItem(Pill pill) {
-    return Text(pill.name, style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal));
+    return Text(
+      pill.name,
+      style: const TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.normal,
+      ),
+    );
   }
-
-
-
 }
