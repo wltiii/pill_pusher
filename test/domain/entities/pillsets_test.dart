@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pill_pusher/domain/entities/pillbox.dart';
-import 'package:pill_pusher/domain/entities/pillbox-container.dart';
-import 'package:pill_pusher/domain/entities/test-data.dart';
+import 'package:pill_pusher/domain/entities/pillbox_container.dart';
+import 'package:pill_pusher/domain/entities/test_data.dart';
 
 void main() {
   test('instantiates a PillSets from default constructor', () {
@@ -16,14 +16,16 @@ void main() {
   });
 
   test('instantiates a PillSets from json with one set', () {
-    final pillSets = PillboxContainer.fromJson(jsonDecode(dependentSinglePillSetsJsonString));
+    final pillSets = PillboxContainer.fromJson(
+        jsonDecode(dependentSinglePillSetsJsonString));
 
     expect(pillSets.dependent, equals('Coda'));
     expect(pillSets.sets.length, equals(1));
   });
 
   test('instantiates a PillSets with no dependent in json', () {
-    final pillSets = PillboxContainer.fromJson(jsonDecode(noDependentSinglePillSetsJsonString));
+    final pillSets = PillboxContainer.fromJson(
+        jsonDecode(noDependentSinglePillSetsJsonString));
 
     expect(pillSets.dependent, equals(''));
     expect(pillSets.sets.length, equals(1));

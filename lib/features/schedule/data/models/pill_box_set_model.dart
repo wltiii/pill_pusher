@@ -1,10 +1,14 @@
 import 'package:pill_pusher/features/schedule/data/models/pill_box_model.dart';
 import 'package:pill_pusher/features/schedule/domain/entities/pill_box_set.dart';
 
-class PillBoxSetModel extends PillBoxSet {
-  final List<PillBoxModel> pillBoxes;
+import '../../domain/entities/pill_box.dart';
 
-  PillBoxSetModel({required String caretaker, required String dependent, required this.pillBoxes})
+class PillBoxSetModel extends PillBoxSet {
+  const PillBoxSetModel(
+      // TODO(wltiii): can caretaker and dependent be delegated to super?
+      {required String caretaker,
+      required String dependent,
+      required List<PillBox> pillBoxes})
       : super(caretaker: caretaker, dependent: dependent, pillBoxes: pillBoxes);
 
   factory PillBoxSetModel.fromJson(Map<String, dynamic> json) {
@@ -18,6 +22,7 @@ class PillBoxSetModel extends PillBoxSet {
     );
   }
 
+  //TODO(wltiii): delegate to super?
   Map<String, dynamic> toJson() {
     return {
       "caretaker": caretaker,

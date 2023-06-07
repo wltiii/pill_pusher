@@ -8,13 +8,13 @@ import 'package:pill_pusher/features/schedule/domain/entities/pill_box.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final vitaminC = PillModel(name: "C");
-  final evoo = PillModel(name: "Extra Virgin Olive Oil");
+  const vitaminC = PillModel(name: "C");
+  const evoo = PillModel(name: "Extra Virgin Olive Oil");
 
   final pills = [vitaminC, evoo];
 
   final pillBoxModel =
-    PillBoxModel(name: 'Morning', frequency: "Daily", pills: pills);
+      PillBoxModel(name: 'Morning', frequency: "Daily", pills: pills);
 
   final pillBoxJson = fixture('pill_box.json');
 

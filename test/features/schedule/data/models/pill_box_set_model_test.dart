@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pill_pusher/features/schedule/data/models/pill_box_model.dart';
@@ -10,13 +9,15 @@ import 'package:pill_pusher/features/schedule/domain/entities/pill_box_set.dart'
 import '../../../../fixtures/fixture_reader.dart' show fixture;
 
 void main() {
-  final vitaminC = PillModel(name: "C");
-  final evoo = PillModel(name: "Extra Virgin Olive Oil");
-  final cinsulin = PillModel(name: "Cinsulin - Cinnamon");
-  final coQ10 = PillModel(name: "Ubiquinol - CoQ10");
+  const vitaminC = PillModel(name: "C");
+  const evoo = PillModel(name: "Extra Virgin Olive Oil");
+  const cinsulin = PillModel(name: "Cinsulin - Cinnamon");
+  const coQ10 = PillModel(name: "Ubiquinol - CoQ10");
 
-  final morningPills = PillBoxModel(name: 'Morning', frequency: "Daily", pills: [vitaminC, evoo]);
-  final eveningPills = PillBoxModel(name: 'Bedtime', frequency: "Daily", pills: [cinsulin, coQ10]);
+  const morningPills = PillBoxModel(
+      name: 'Morning', frequency: "Daily", pills: [vitaminC, evoo]);
+  const eveningPills = PillBoxModel(
+      name: 'Bedtime', frequency: "Daily", pills: [cinsulin, coQ10]);
 
   final pillBoxes = [morningPills, eveningPills];
 

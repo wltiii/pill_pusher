@@ -3,14 +3,14 @@ import 'package:pill_pusher/domain/entities/pill.dart';
 
 class PillSet extends Equatable {
   final String name;
-  String frequency;
-  List<Pill> pills;
+  final String frequency;
+  final List<Pill> pills;
 
   //TODO this probably should be a named constructor to enable making fields private
-  PillSet.Pillbox({
+  const PillSet.pillbox({
     required this.name,
-    this.frequency: '',
-    this.pills: const [],
+    this.frequency = '',
+    this.pills = const [],
   });
 
   @override
@@ -20,9 +20,10 @@ class PillSet extends Equatable {
   bool get stringify => true;
 
   factory PillSet.fromJson(Map<String, dynamic> json) {
-    var somePills = json['pills'].map((pill) => Pill.fromJson(pill)).toList().cast<Pill>();
+    var somePills =
+        json['pills'].map((pill) => Pill.fromJson(pill)).toList().cast<Pill>();
 
-    var pillSet = PillSet.Pillbox(
+    var pillSet = PillSet.pillbox(
       name: json['name'],
       frequency: json['frequency'] ?? '',
       pills: somePills,

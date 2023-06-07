@@ -13,7 +13,8 @@ void main() {
   GetPillBoxSet useCase;
   MockPillBoxSetRepository mockPillBoxSetRepository;
 
-  final pillBoxSet = PillBoxSet(caretaker: "Bill", dependent: 'Zorba', pillBoxes: [
+  const pillBoxSet =
+      PillBoxSet(caretaker: "Bill", dependent: 'Zorba', pillBoxes: [
     PillBox(name: 'Morning', frequency: 'Daily', pills: [
       Pill(name: "Extra Virgin Olive Oil"),
     ])
@@ -31,14 +32,14 @@ void main() {
     String givenDependent = 'Zorba';
 
     when(() => mockPillBoxSetRepository.getByDependent(givenDependent))
-        .thenAnswer((realInvocation) => Future.value(Right(pillBoxSet)));
+        .thenAnswer((realInvocation) => Future.value(const Right(pillBoxSet)));
 
     // when
     useCase = GetPillBoxSet(mockPillBoxSetRepository);
     final result = await useCase(Params(dependent: givenDependent));
 
     // then
-    expect(result, Right(pillBoxSet));
+    expect(result, const Right(pillBoxSet));
     verify(() => mockPillBoxSetRepository.getByDependent(givenDependent));
     verifyNoMoreInteractions(mockPillBoxSetRepository);
   });

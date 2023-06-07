@@ -5,9 +5,9 @@ class Pill extends Equatable {
   final String dose;
 
   //TODO this probably should be a named constructor to enable making fields private
-  Pill({
+  const Pill({
     required this.name,
-    this.dose: '',
+    this.dose = '',
   });
 
   @override

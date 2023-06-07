@@ -2,15 +2,17 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:pill_pusher/domain/entities/pill.dart';
-import 'package:pill_pusher/domain/entities/pillbox-container.dart';
 import 'package:pill_pusher/domain/entities/pillbox.dart';
-import 'package:pill_pusher/domain/entities/test-data.dart';
+import 'package:pill_pusher/domain/entities/pillbox_container.dart';
+import 'package:pill_pusher/domain/entities/test_data.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -32,13 +34,13 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Pill Pusher'),
+      home: const MyHomePage(title: 'Pill Pusher'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({
+  const MyHomePage({
     required this.title,
     Key? key = const Key('Home'),
   }) : super(key: key);
@@ -55,12 +57,12 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   // TODO this is a stub - get from data store
-  PillboxContainer _pillSets =
+  final PillboxContainer _pillSets =
       PillboxContainer.fromJson(jsonDecode(multiplePillSetsJsonString));
 
   @override

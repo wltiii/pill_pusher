@@ -4,10 +4,10 @@ import 'package:pill_pusher/features/schedule/domain/entities/pill.dart';
 import 'package:pill_pusher/features/schedule/domain/entities/pill_box.dart';
 
 void main() {
-  final vitaminC = Pill(name: "C");
-  final probiotic = Pill(name: "Probiotic");
+  const vitaminC = Pill(name: "C");
+  const probiotic = Pill(name: "Probiotic");
 
-  final pillbox = PillBox(name: 'Morning', frequency: 'Daily', pills: [
+  const pillbox = PillBox(name: 'Morning', frequency: 'Daily', pills: [
     vitaminC,
     probiotic,
   ]);
@@ -25,8 +25,11 @@ void main() {
   });
 
   group("Equatable", () {
-    test('props contains list of all properties that determine equality when constructed', () {
-      expect(pillbox.props, equals([pillbox.name, pillbox.frequency, pillbox.pills]));
+    test(
+        'props contains list of all properties that determine equality when constructed',
+        () {
+      expect(pillbox.props,
+          equals([pillbox.name, pillbox.frequency, pillbox.pills]));
     });
 
     test('stringify is turned on when constructed', () {

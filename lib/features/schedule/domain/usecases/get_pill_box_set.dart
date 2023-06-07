@@ -20,7 +20,7 @@ class GetPillBoxSet implements UseCase<PillBoxSet, Params> {
 class Params extends Equatable {
   final String dependent;
 
-  Params({required this.dependent});
+  const Params({required this.dependent});
 
   @override
   List<Object> get props => [dependent];

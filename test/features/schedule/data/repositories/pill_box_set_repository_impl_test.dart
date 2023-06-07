@@ -18,19 +18,22 @@ void main() {
       // given
       repository = PillBoxSetRepositoryImpl();
 
-      final pillBoxSetModel = PillBoxSetModel(
+      const pillBoxSetModel = PillBoxSetModel(
         caretaker: "Bill",
         dependent: "Coda",
         pillBoxes: [
-          PillBoxModel(name: 'Morning', frequency: "Daily", pills: [PillModel(name: "C")]),
+          PillBoxModel(
+              name: 'Morning',
+              frequency: "Daily",
+              pills: [PillModel(name: "C")]),
         ],
       );
 
-      final PillBoxSet pillBoxSet = pillBoxSetModel;
+      const PillBoxSet pillBoxSet = pillBoxSetModel;
       // when
       final result = await repository.getByDependent('Coda');
       // then
-      expect(result, equals(Right(pillBoxSet)));
+      expect(result, equals(const Right(pillBoxSet)));
     }, skip: 'not fully implemented');
   });
 }

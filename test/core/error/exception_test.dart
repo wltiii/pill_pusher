@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pill_pusher/core/error/exception.dart';
 
@@ -12,12 +11,11 @@ void main() {
         expect(serverException, isA<Exception>());
       });
     });
-    
+
     group("CacheException", () {
       test('should be a subclass of Exception', () async {
         expect(cacheException, isA<Exception>());
       });
     });
-
   });
 }

@@ -18,7 +18,7 @@ void main() {
     test('returns a PillBoxSetModel', () async {
       // given
       dataSource = PillBoxSetRemoteDataSourceImpl();
-      final aDependent = 'Coda';
+      const aDependent = 'Coda';
       final expectedPillBoxSet = fixture('pill_box_set.json');
       // when
       final result = await dataSource.getByDependent(aDependent);

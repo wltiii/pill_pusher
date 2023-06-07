@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class Pill extends Equatable {
   final String name;
 
-  Pill({
+  const Pill({
     required this.name,
   });
 
